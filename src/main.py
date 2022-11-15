@@ -20,8 +20,10 @@ def main():
     devices_table = [["hostname", "vendor", "model", "uptime", "serial_number"]]
     devices_table_int = [["hostname","interface","is_up", "is_enabled", "description", "speed", "mtu", "mac_address"]]
     devices_mac_table = [["hostname","mac", "interface", "vlan", "static"]]
-     
-    for device in network_devices:
+
+    try:
+ 
+     for device in network_devices:
         print("Connecting to {} ...".format(device.hostname))
         device.open()
  
@@ -37,7 +39,10 @@ def main():
  
  
         device.close()
-        print("Done.")
+    except:
+	pass
+
+    print("Done.")
     print(tabulate(devices_table, headers="firstrow"))
     print()
  
