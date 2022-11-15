@@ -1,5 +1,4 @@
 #!/usr/bin/python
-# -*- coding: utf-8 -*-
 import napalm
 from tabulate import tabulate
 
@@ -19,18 +18,6 @@ def main():
 
     devices_table = [['hostname', 'vendor', 'model', 'uptime',
                      'serial_number']]
-    devices_table_int = [[
-        'hostname',
-        'interface',
-        'is_up',
-        'is_enabled',
-        'description',
-        'speed',
-        'mtu',
-        'mac_address',
-        ]]
-    devices_mac_table = [['hostname', 'mac', 'interface', 'vlan',
-                         'static']]
 
     try:
         for device in network_devices:
@@ -46,6 +33,7 @@ def main():
 
         device.close()
     except:
+        print(f"Non Cisco {device.hostname}")
         pass
 
     print ('Done.')
