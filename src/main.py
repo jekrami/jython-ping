@@ -22,15 +22,12 @@ def main():
     devices_mac_table = [["hostname","mac", "interface", "vlan", "static"]]
 
     try:
- 
-     for device in network_devices:
-        print("Connecting to {} ...".format(device.hostname))
-        device.open()
- 
-        print("Getting device facts")
-        device_facts = device.get_facts()
- 
-        devices_table.append([device_facts["hostname"],
+	for device in network_devices:
+        	print("Connecting to {} ...".format(device.hostname))
+        	device.open()
+        	print("Getting device facts")
+        	device_facts = device.get_facts()
+         	devices_table.append([device_facts["hostname"],
                               device_facts["vendor"],
                               device_facts["model"],
                               device_facts["uptime"],
